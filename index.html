@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crypto Portfolio Tracker</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <h1>Crypto Portfolio</h1>
+    <div class="topbar-actions">
+      <span id="lastUpdated" class="muted"></span>
+      <button id="refreshBtn" class="btn-icon" title="Refresh prices">&#8635;</button>
+      <select id="currencySelect" title="Currency">
+        <option value="usd">USD</option>
+        <option value="eur">EUR</option>
+        <option value="thb">THB</option>
+        <option value="gbp">GBP</option>
+      </select>
+    </div>
+  </header>
+
+  <section class="summary-cards">
+    <div class="card">
+      <div class="card-label">Total Value</div>
+      <div id="totalValue" class="card-value">—</div>
+    </div>
+    <div class="card">
+      <div class="card-label">24h Change</div>
+      <div id="totalChange" class="card-value">—</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Holdings</div>
+      <div id="holdingsCount" class="card-value">0</div>
+    </div>
+  </section>
+
+  <section class="add-holding">
+    <h2>Add Holding</h2>
+    <form id="addForm" autocomplete="off">
+      <input list="coinList" id="coinInput" placeholder="Coin (e.g. bitcoin)" required />
+      <datalist id="coinList"></datalist>
+      <input id="amountInput" type="number" step="any" min="0" placeholder="Amount" required />
+      <button type="submit" class="btn-primary">Add</button>
+    </form>
+    <p id="formError" class="error-text" hidden></p>
+  </section>
+
+  <section class="holdings-section">
+    <h2>Your Holdings</h2>
+    <div id="emptyState" class="empty-state" hidden>
+      <p>No holdings yet. Add a coin above to start tracking your portfolio.</p>
+    </div>
+    <div class="table-wrap">
+      <table id="holdingsTable" hidden>
+        <thead>
+          <tr>
+            <th>Coin</th>
+            <th>Price</th>
+            <th>24h</th>
+            <th>Amount</th>
+            <th>Value</th>
+            <th>Allocation</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="holdingsBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Prices via <a href="https://www.coingecko.com/en/api" target="_blank" rel="noopener">CoinGecko API</a>. Data stored locally in your browser only.</p>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
