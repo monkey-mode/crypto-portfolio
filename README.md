@@ -8,9 +8,10 @@ browser, no backend required.
 
 - Live prices from the [CoinGecko API](https://www.coingecko.com/en/api) (no API key needed)
 - Track holdings by coin + amount, with autocomplete over the top 250 coins by market cap
+- Connect a MetaMask wallet to pull in native balances from Ethereum, Arbitrum, Optimism, and BNB Chain (via public RPCs) and merge them into your portfolio automatically
 - Total portfolio value, 24h change, and per-coin allocation
 - Switch between USD, EUR, GBP, THB
-- Holdings persist in `localStorage` — nothing is sent to a server
+- Holdings persist in `localStorage` — nothing is sent to a server; wallet balances are read-only and never leave the browser
 
 ## Running locally
 
